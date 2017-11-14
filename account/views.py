@@ -6,6 +6,7 @@ from django.contrib import messages
 from .models import Profile
 from .forms import LoginForm, UserRegistrationForm, \
                    UserEditForm, ProfileEditForm
+from django.contrib import messages
 
 def user_login(request):
     if request.method == 'POST':
@@ -78,3 +79,4 @@ def edit(request):
                   'account/edit.html',
                   {'user_form': user_form,
                    'profile_form': profile_form})
+

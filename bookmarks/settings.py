@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'images',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -151,6 +152,19 @@ LOGOUT_URL = reverse_lazy('logout')
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'account.authentication.EmailAuthBackend',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+)
+
+SOCIAL_AUTH_FACEBOOK_KEY = '145851199375796'
+SOCIAL_AUTH_FACEBOOK_SECRET = '98d4065fb93ac8e82d87649e639edad6'
+
+SOCIAL_AUTH_TWITTER_KEY = 'mivXSoWuC1rMOzTKogBEBC4xH'
+SOCIAL_AUTH_TWITTER_SECRET = 'aDx9UG0o8Q6ULFkIzvvOu9bmLfHgPP5YLUQXF4z4C5L4nFDvxu'
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
@@ -162,11 +176,5 @@ DATABASES['default'].update(db_from_env)
 # https://warehouse.python.org/project/whitenoise/
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',
-    'account.authentication.EmailAuthBackend',
-)
-
 
 

@@ -396,7 +396,7 @@
         }
     </style>
 </head>
-<body style="background: url('{% static "images/log.jpg" %}');background-size: cover">
+<body style="background: url('{% static "images/background.jpg" %}');background-size: cover">
 	<div class="header">
 		<span class="logo">Bookmarks</span>
 		{% if request.user.is_authenticated %}
@@ -415,19 +415,9 @@
 
 		<span class="user">
 			{% if request.user.is_authenticated %}
-                <div class="dropdown">
-                    <a href="#" class="dropbtn" data-toggle="dropdown" role="button" aria-expanded="false" style="color: whitesmoke; font-size: medium; margin-right: 50px;"><b>
-                                Hello {{ request.user.first_name }} <span class="caret"></span></b>
-
-                        </a>
-{#                    Hello {{ request.user.first_name }}#}
-                    <div class="dropdown-menu" role="menu">
-                        <a href="{% url 'logout' %}">Logout</a>
-                        <a href="{% url "edit" %}">Edit</a>
-                        <a href="{% url "password_change" %}">Change Password</a>
-                    </div>
-                </div>
-			{% else %}
+                Hello {{ request.user.first_name }},
+      <a href="{% url "logout" %}">Logout</a>
+    {% else %}
 				<a href="{% url 'login' %}">Login</a>
 			{% endif %}
 		</span>
@@ -441,6 +431,16 @@
                 </li>
             {% endfor %}
         </ul>{% endif %}
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li class="{{ message.tags }}">
+        {{ message|safe }}
+          <a href="#" class="close">✖</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
 	<div id="content">
 		{% block content %}
 		{% endblock %}
