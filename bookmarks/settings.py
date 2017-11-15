@@ -86,11 +86,11 @@ WSGI_APPLICATION = 'bookmarks.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'd4r36900ff0uk9',
-        'USER': 'xmigjbixfyldbx',
-        'PASSWORD': 'd6527097a56c617a7f0aebe9de60dab0d65fbc2247c58092a898d9c1010ee516',
-        'HOST': 'ec2-54-163-249-237.compute-1.amazonaws.com',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd3cvde02ca5kah',
+        'USER': 'dfkhxjhslgesgk',
+        'PASSWORD': 'de291b008cfe9f3f8f2f9483fdea0eee76068cdc12e6f73165a465de7230b17a',
+        'HOST': 'ec2-54-225-70-53.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
