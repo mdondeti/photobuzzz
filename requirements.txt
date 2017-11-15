@@ -36,3 +36,4 @@ Werkzeug==0.12.1
 whitenoise==3.3.0
 yahoo-finance==1.4.0
 psycopg2==2.7.1
+social-auth-app-django==2.0.0
